@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Tracker · Wellness Hunny Patient Guide</title>
+<meta name="description" content="Rate how you feel once a week, on the same day. Bring it to every visit.">
+<meta name="theme-color" content="#2b231d">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="top">
+  <div class="call-banner">Questions? Call <a href="tel:+15083882200">(508) 388-2200</a> or message us in the Symplast for Patients app. &nbsp;<span class="muted">Emergency? Call 911.</span></div>
+  <nav class="main" aria-label="Main">
+    <div class="wrap">
+      <a href="index.html" class="logo">wellness<span>hunny</span><small>Patient Guide</small></a>
+      <div class="nav-links"><a href="start-here.html">Start Here</a><a href="your-program.html">Your Program</a><a href="daily-habits.html">Daily Habits</a><a href="food.html">Food</a><a href="remedies.html">Remedies</a><a href="supplements.html">Supplements</a><a href="testing.html">Testing</a><a href="lip-bunny-rx.html">Lip Bunny Rx</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="icon-btn" data-open-search aria-label="Search the guide">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</button>
+        <button class="icon-btn menu-btn" aria-expanded="false" aria-label="Menu">Menu</button>
+      </div>
+    </div>
+  </nav>
+</div>
+<main id="main">
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Patient Guide</a> &rsaquo; Tracker</div>
+    <h1>Your weekly tracker.</h1>
+    <p>Rate how you feel once a week, on the same day. Bring it to every visit.</p>
+  </div>
+</header>
+
+<section id="this-week" data-short="This Week" data-keywords="log rate energy sleep digestion mood">
+  <div class="wrap narrow">
+    <div class="callout tip" style="margin-top:0"><strong>Private to this phone</strong><p>Your entries are saved only in this browser on this device. Nothing is sent to us. Bring your phone (or a printout) to your visits, and keep logging in Heads Up too.</p></div>
+    <div class="card" style="padding:26px">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end;margin-bottom:10px">
+        <div><h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px">Rate this week</h3>
+        <p class="small muted" style="margin:0">1 = very poor, 5 = great. For bloating, 5 means none.</p></div>
+        <label class="small" style="min-width:170px">Week ending<input class="field" type="date" id="t-date"></label>
+      </div>
+      <div id="t-sliders"></div>
+      <div class="grid g2" style="margin-top:16px">
+        <label class="small"><strong>Bowel movements per day</strong> (goal: at least 1)<input class="field" type="number" min="0" max="9" step="1" id="t-bm" value="1"></label>
+        <label class="small"><strong>Morning pH</strong> (optional)<input class="field" type="number" min="4" max="9" step="0.5" id="t-ph" placeholder="e.g. 6.5"></label>
+      </div>
+      <label class="small" style="display:block;margin-top:12px"><strong>Wins, reactions &amp; questions for my next visit</strong>
+        <textarea class="field" id="t-notes" rows="3" placeholder="Slept through the night 4 times. Bloating after dairy."></textarea></label>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="btn btn-primary" id="t-save" type="button">Save this week</button>
+        <span id="t-msg" class="small muted" style="align-self:center"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="history" data-short="My History">
+  <div class="wrap">
+    <div class="section-head" style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+      <div><span class="eyebrow">See the Trend</span><h2>My history</h2></div>
+      <div class="no-print" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-ghost btn-sm" type="button" onclick="window.print()">Print / Save PDF</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="t-clear">Clear all</button>
+      </div>
+    </div>
+    <div class="table-wrap"><table class="hist"><thead><tr><th>Week ending</th><th>Energy</th><th>Sleep</th><th>Digestion</th><th>Mood</th><th>Bloating</th><th>BMs/day</th><th>pH</th><th>Notes</th><th class="no-print"></th></tr></thead><tbody id="t-rows"></tbody></table></div>
+    <p class="small muted">Feeling off? No bowel movement for 2+ days, or reactions more than mild? <a href="contact.html">Reach out</a>.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var KEY = 'lbw-tracker-v1';
+  var FIELDS = [['energy', 'Energy'], ['sleep', 'Sleep'], ['digestion', 'Digestion'], ['mood', 'Mood'], ['bloating', 'Bloating']];
+  var LABELS = ['', 'Very poor', 'Poor', 'Okay', 'Good', 'Great'];
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  function store(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); return true; } catch (e) { return false; } }
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+  var box = document.getElementById('t-sliders');
+  FIELDS.forEach(function (f) {
+    var row = document.createElement('div'); row.className = 'tracker-row';
+    row.innerHTML = '<label for="t-' + f[0] + '">' + f[1] + '<br><span class="small muted" id="t-' + f[0] + '-l">Okay</span></label>' +
+      '<input type="range" min="1" max="5" step="1" value="3" id="t-' + f[0] + '">' +
+      '<output id="t-' + f[0] + '-o">3</output>';
+    box.appendChild(row);
+    var inp = row.querySelector('input');
+    inp.addEventListener('input', function () {
+      document.getElementById('t-' + f[0] + '-o').textContent = inp.value;
+      document.getElementById('t-' + f[0] + '-l').textContent = f[0] === 'bloating' ? (['', 'A lot', 'Often', 'Some', 'A little', 'None'])[inp.value] : LABELS[inp.value];
+    });
+  });
+  (function(){var n=new Date();document.getElementById('t-date').value=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');})();
+  function render() {
+    var d = load().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    var tb = document.getElementById('t-rows');
+    if (!d.length) { tb.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--ink-soft)">No weeks saved yet. Your first entry will show up here.</td></tr>'; return; }
+    tb.innerHTML = d.map(function (r, i) {
+      return '<tr><td><strong>' + esc(r.date) + '</strong></td>' + FIELDS.map(function (f) { return '<td>' + esc(r[f[0]]) + '</td>'; }).join('') +
+        '<td>' + esc(r.bm) + '</td><td>' + esc(r.ph) + '</td><td style="text-align:left;min-width:180px">' + esc(r.notes) + '</td>' +
+        '<td class="no-print"><button class="btn btn-ghost btn-sm" data-del="' + esc(r.date) + '" type="button">Delete</button></td></tr>';
+    }).join('');
+  }
+  document.getElementById('t-save').addEventListener('click', function () {
+    var date = document.getElementById('t-date').value;
+    if (!date) { document.getElementById('t-msg').textContent = 'Pick a date first.'; return; }
+    var rec = { date: date, bm: document.getElementById('t-bm').value, ph: document.getElementById('t-ph').value, notes: document.getElementById('t-notes').value.trim() };
+    FIELDS.forEach(function (f) { rec[f[0]] = document.getElementById('t-' + f[0]).value; });
+    var d = load().filter(function (r) { return r.date !== date; }); d.push(rec);
+    var ok = store(d);
+    document.getElementById('t-msg').textContent = ok ? 'Saved. Nice work checking in.' : 'Could not save in this browser. Try printing instead.';
+    render();
+  });
+  document.getElementById('t-rows').addEventListener('click', function (e) {
+    var date = e.target.getAttribute('data-del');
+    if (date && confirmDelete(e.target)) { store(load().filter(function (r) { return r.date !== date; })); render(); }
+  });
+  function confirmDelete(btn) {
+    if (btn.dataset.armed) return true;
+    btn.dataset.armed = '1'; btn.textContent = 'Tap again'; setTimeout(function () { delete btn.dataset.armed; btn.textContent = 'Delete'; }, 3000);
+    return false;
+  }
+  document.getElementById('t-clear').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.dataset.armed) { b.dataset.armed = '1'; b.textContent = 'Tap again to clear'; setTimeout(function () { delete b.dataset.armed; b.textContent = 'Clear all'; }, 3000); return; }
+    store([]); render(); b.textContent = 'Clear all'; delete b.dataset.armed;
+  });
+  render();
+})();
+</script>
+
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a href="index.html" class="logo">wellness<span style="color:var(--tan-light)">hunny</span></a>
+        <p style="margin-top:12px">A Lip Bunny Beauty Wellness program.<br>Root cause medicine that blends Eastern and Western care.</p>
+        <p><a href="tel:+15083882200">(508) 388-2200</a><br><a href="https://maps.google.com/?q=484+Highland+Ave+Fall+River+MA" target="_blank" rel="noopener">484 Highland Ave, Fall River, MA</a></p>
+      </div>
+      <div><h4>Your Program</h4><ul><li><a href="start-here.html">Start Here</a></li><li><a href="your-program.html">Your Program</a></li><li><a href="daily-habits.html">Daily Habits</a></li><li><a href="food.html">Food & Recipes</a></li><li><a href="remedies.html">Home Remedies</a></li><li><a href="supplements.html">Supplements</a></li></ul></div>
+      <div><h4>Guides &amp; Help</h4><ul><li><a href="fast-days.html">ProLon Fast Days</a></li><li><a href="testing.html">Testing & Labs</a></li><li><a href="lip-bunny-rx.html">Lip Bunny Rx Patient Guides</a></li><li><a href="tracker.html">Weekly Tracker</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    </div>
+    <div class="disclaimer">This guide is general patient education for Lip Bunny Beauty Wellness patients. It does not replace medical advice or the instructions from your provider. Always follow your own plan and your product labels. Compounded medications are not FDA-approved. In an emergency, call 911.<br>&copy; 2026 Lip Bunny Beauty Wellness &middot; Fall River, MA</div>
+  </div>
+</footer>
+<div class="mobile-bar">
+  <a href="index.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+  <button data-open-search><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</button>
+  <a href="tracker.html"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Tracker</a>
+  <a href="tel:+15083882200"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call</a>
+</div>
+<div class="search-overlay" id="search" role="dialog" aria-modal="true" aria-label="Search the guide">
+  <div class="search-box">
+    <header>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8c6d4f" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search-input" type="search" placeholder="Search remedies, supplements, injections, food…" autocomplete="off">
+      <button class="close" type="button">Close</button>
+    </header>
+    <div class="results" id="search-results"></div>
+  </div>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
