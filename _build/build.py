@@ -54,7 +54,7 @@ PAGES = [
      "How-to guides for patients on GLP-1 injections, bioidentical hormones, and GHK-Cu. Always follow the dose on your label."),
     ("tracker", "Heads Up", "Track in Heads Up", "Track How You Feel",
      "Track it in Heads Up.",
-     "Heads Up is where you track your weight, symptoms and habits. Your care team sees it and uses it at every visit."),
+     "Heads Up is where you track your symptoms and habits, and your weight if you like. Your care team sees it and uses it at every visit."),
     ("faq", "FAQ", "FAQ", "Got Questions?",
      "Frequently asked questions.",
      "Quick answers to what patients ask us most."),
