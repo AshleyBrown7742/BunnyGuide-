@@ -277,3 +277,47 @@
   }
   fromHash();
 })();
+
+// Box breathing tool
+(function () {
+  var root = document.getElementById('box-breathing'); if (!root) return;
+  var box = document.getElementById('breathe-box'), dot = document.getElementById('breathe-dot'),
+      phaseEl = document.getElementById('breathe-phase'), countEl = document.getElementById('breathe-count'),
+      leftEl = document.getElementById('breathe-left'), go = document.getElementById('breathe-go');
+  var mins = 1, timer = null, t0 = 0, raf = null, endAt = 0, total = 0;
+  var PH = [['Breathe in','in'],['Hold',''],['Breathe out','out'],['Hold','']];
+  root.querySelectorAll('[data-min]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (timer) return;
+      mins = +b.dataset.min;
+      root.querySelectorAll('[data-min]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
+  });
+  function place(p) { // p 0..4 around the box: up left side, across top, down right, back along bottom
+    var s = p % 1, x, y;
+    var side = Math.floor(p) % 4;
+    if (side === 0) { x = 0; y = 1 - s; } else if (side === 1) { x = s; y = 0; } else if (side === 2) { x = 1; y = s; } else { x = 1 - s; y = 1; }
+    dot.style.left = 'calc(' + (x * 100) + '% - 10px)'; dot.style.top = 'calc(' + (y * 100) + '% - 10px)';
+  }
+  function frame(now) {
+    var el = Math.max(0, (now - t0) / 1000);
+    if (el >= total) { stop(true); return; }
+    var p = (el / 4) % 4, ph = Math.floor(p);
+    place(p);
+    phaseEl.textContent = PH[ph][0];
+    countEl.textContent = 4 - Math.floor(el % 4);
+    box.classList.toggle('in', ph === 0 || ph === 1); box.classList.toggle('out', ph === 2 || ph === 3);
+    var left = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
+    leftEl.textContent = Math.floor(left / 60) + ':' + ('0' + left % 60).slice(-2) + ' left';
+    raf = requestAnimationFrame(frame);
+  }
+  function start() { t0 = performance.now(); total = Math.ceil(mins * 60 / 16) * 16; endAt = Date.now() + total * 1000; timer = 1; go.textContent = 'Stop'; raf = requestAnimationFrame(frame); }
+  function stop(done) {
+    cancelAnimationFrame(raf); timer = null; go.textContent = 'Start';
+    box.classList.remove('in', 'out'); place(0);
+    phaseEl.textContent = done ? 'Well done' : 'Ready'; countEl.textContent = done ? '' : '4';
+    leftEl.innerHTML = done ? 'Notice how you feel.' : '&nbsp;';
+  }
+  go.addEventListener('click', function () { timer ? stop(false) : start(); });
+  place(0);
+})();

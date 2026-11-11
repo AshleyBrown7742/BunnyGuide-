@@ -556,3 +556,18 @@ footer.site .logo-text small { color: var(--blush); }
   .logo-mark { width: 36px; height: 36px; }
   .call-banner { font-size: 11.5px; padding: 6px 10px; }
 }
+
+/* Box breathing tool */
+.breathe { display:grid; grid-template-columns: 1.1fr 1fr; gap:28px; align-items:center; margin-top:24px; padding:28px; }
+.breathe h3 { font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.02em; font-size:28px; text-transform:uppercase; }
+.breathe-len { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 16px; }
+.breathe-box-wrap { display:flex; flex-direction:column; align-items:center; }
+.breathe-box { position:relative; width:min(240px,70vw); aspect-ratio:1; border:3px solid #f0dae1; border-radius:18px; background:#fff; display:flex; align-items:center; justify-content:center; transition: background-color 4s ease, transform 4s ease; }
+.breathe-box.in { background:#f0dae1; transform:scale(1.04); }
+.breathe-box.out { background:#fff; transform:scale(1); }
+.breathe-dot { position:absolute; width:18px; height:18px; border-radius:50%; background:#df6299; box-shadow:0 0 0 6px rgba(223,98,153,.18); left:-10px; top:calc(100% - 8px); }
+.breathe-center { text-align:center; }
+.breathe-phase { font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:.04em; font-size:24px; color:#1d1b19; }
+.breathe-count { font-family:'Anton',sans-serif; font-size:56px; line-height:1; color:#b5326d; }
+@media (max-width: 760px) { .breathe { grid-template-columns:1fr; padding:22px; } .breathe-box-wrap { order:-1; } .breathe-box { width:min(200px,60vw); } }
+@media (prefers-reduced-motion: reduce) { .breathe-box { transition:none; } }

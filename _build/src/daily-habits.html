@@ -107,9 +107,31 @@
       <div class="card"><h3>Movement and yoga</h3><p>A slow flow or a walk both shift you out of stress mode.</p></div>
       <div class="card"><h3>Energy work and Reiki</h3><p>Many people find it deeply calming. Ask us about options.</p></div>
       <div class="card"><h3>Therapy</h3><p>A trained outside perspective is one of the most effective nervous system tools there is.</p></div>
-      <div class="card"><h3>Breathing</h3><p>Slow breaths with a longer exhale (in for 4, out for 6) for a few minutes tell your body it's safe.</p></div>
+      <div class="card"><h3>Breathing</h3><p>Slow breaths with a longer exhale (in for 4, out for 6) for a few minutes tell your body it's safe. Or try <a href="#box-breathing">box breathing</a> below.</p></div>
       <div class="card"><h3>Fewer screens</h3><p>Especially in the hour before bed. Less scrolling, less comparison.</p></div>
       <div class="card"><h3>Neuromodulation</h3><p>Vagus nerve tools are worth exploring with us if stress feels hard to shift.</p></div>
+    </div>
+
+    <div class="card breathe" id="box-breathing" data-keywords="box breathing breathe breath work calm anxiety stress panic sleep timer guided">
+      <div class="breathe-text">
+        <span class="eyebrow">Try It Now</span>
+        <h3>Box breathing</h3>
+        <p>Breathe in for 4, hold for 4, breathe out for 4, hold for 4. Follow the dot around the box. Great before bed, before a hard conversation, or any time you feel wired.</p>
+        <div class="breathe-len" role="group" aria-label="Length">
+          <button type="button" class="supp-chip" data-min="1" aria-pressed="true">1 min</button>
+          <button type="button" class="supp-chip" data-min="3" aria-pressed="false">3 min</button>
+          <button type="button" class="supp-chip" data-min="5" aria-pressed="false">5 min</button>
+        </div>
+        <button type="button" class="btn btn-primary" id="breathe-go">Start</button>
+        <p class="small muted" style="margin-top:12px">Feel dizzy or lightheaded? Stop and breathe normally.</p>
+      </div>
+      <div class="breathe-box-wrap" aria-live="polite">
+        <div class="breathe-box" id="breathe-box">
+          <span class="breathe-dot" id="breathe-dot"></span>
+          <div class="breathe-center"><div class="breathe-phase" id="breathe-phase">Ready</div><div class="breathe-count" id="breathe-count">4</div></div>
+        </div>
+        <div class="small muted" id="breathe-left" style="text-align:center;margin-top:10px">&nbsp;</div>
+      </div>
     </div>
 
     <div class="grid g2" style="margin-top:24px" id="deeper-work">
