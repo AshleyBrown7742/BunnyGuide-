@@ -52,9 +52,9 @@ PAGES = [
     ("lip-bunny-rx", "Lip Bunny Rx", "Lip Bunny Rx Patient Guides", "Lip Bunny Rx",
      "Injections, hormones & skin.",
      "How-to guides for patients on GLP-1 injections, bioidentical hormones, and GHK-Cu. Always follow the dose on your label."),
-    ("tracker", "Tracker", "Weekly Tracker", "Track How You Feel",
-     "Your weekly tracker.",
-     "Rate how you feel once a week, on the same day. Bring it to every visit."),
+    ("tracker", "Heads Up", "Track in Heads Up", "Track How You Feel",
+     "Track it in Heads Up.",
+     "Heads Up is where you track your weight, symptoms and habits. Your care team sees it and uses it at every visit."),
     ("faq", "FAQ", "FAQ", "Got Questions?",
      "Frequently asked questions.",
      "Quick answers to what patients ask us most."),
@@ -124,7 +124,7 @@ def footer():
 <div class="mobile-bar">
   <a href="index.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
   <button data-open-search><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</button>
-  <a href="tracker.html"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Tracker</a>
+  <a href="tracker.html"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Heads Up</a>
   <a href="{TEL}"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call</a>
 </div>
 <div class="search-overlay" id="search" role="dialog" aria-modal="true" aria-label="Search the guide">

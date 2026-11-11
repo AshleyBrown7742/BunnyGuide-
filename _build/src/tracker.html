@@ -1,97 +1,49 @@
-<section id="this-week" data-short="This Week" data-keywords="log rate energy sleep digestion mood">
+<section id="get-started" data-short="Get Started" data-keywords="heads up health app download invite login account tracker">
   <div class="wrap narrow">
-    <div class="callout tip" style="margin-top:0"><strong>Private to this phone</strong><p>Your entries are saved only in this browser on this device. Nothing is sent to us. Bring your phone (or a printout) to your visits, and keep logging in Heads Up too.</p></div>
-    <div class="card" style="padding:26px">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end;margin-bottom:10px">
-        <div><h3 style="font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.02em;font-size:28px">Rate this week</h3>
-        <p class="small muted" style="margin:0">1 = very poor, 5 = great. For bloating, 5 means none.</p></div>
-        <label class="small" style="min-width:170px">Week ending<input class="field" type="date" id="t-date"></label>
-      </div>
-      <div id="t-sliders"></div>
-      <div class="grid g2" style="margin-top:16px">
-        <label class="small"><strong>Bowel movements per day</strong> (goal: at least 1)<input class="field" type="number" min="0" max="9" step="1" id="t-bm" value="1"></label>
-        <label class="small"><strong>Morning pH</strong> (optional)<input class="field" type="number" min="4" max="9" step="0.5" id="t-ph" placeholder="e.g. 6.5"></label>
-      </div>
-      <label class="small" style="display:block;margin-top:12px"><strong>Wins, reactions &amp; questions for my next visit</strong>
-        <textarea class="field" id="t-notes" rows="3" placeholder="Slept through the night 4 times. Bloating after dairy."></textarea></label>
-      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-        <button class="btn btn-primary" id="t-save" type="button">Save this week</button>
-        <span id="t-msg" class="small muted" style="align-self:center"></span>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">Step One</span>
+      <h2>Get set up in Heads Up</h2>
+      <p>Heads Up is your tracker for the whole program. Your care team sees what you log, so we can adjust your plan between visits.</p>
     </div>
+    <ol class="steps">
+      <li><strong>Watch for your invite.</strong> We send it by email when you join. Check your spam folder if you don't see it.</li>
+      <li><strong>Download the Heads Up Health app.</strong> Search "Heads Up Health" in your phone's app store, then sign in with the email from your invite.</li>
+      <li><strong>Connect your devices</strong> if you have them, like a scale, watch or sleep tracker. This is optional.</li>
+      <li><strong>Log your first entry</strong> before your results review.</li>
+    </ol>
+    <div class="callout tip"><strong>Can't find your invite?</strong><p><a href="contact.html">Contact the office</a> and we'll resend it.</p></div>
   </div>
 </section>
 
-<section class="alt" id="history" data-short="My History">
+<section class="alt" id="what-to-log" data-short="What to Log" data-keywords="log weight symptoms energy sleep digestion mood bloating bowel movements ph habits">
   <div class="wrap">
-    <div class="section-head" style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
-      <div><span class="eyebrow">See the Trend</span><h2>My history</h2></div>
-      <div class="no-print" style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-ghost btn-sm" type="button" onclick="window.print()">Print / Save PDF</button>
-        <button class="btn btn-ghost btn-sm" type="button" id="t-clear">Clear all</button>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">Keep It Simple</span>
+      <h2>What to log</h2>
+      <p>A few minutes a day is plenty. Done is better than perfect.</p>
     </div>
-    <div class="table-wrap"><table class="hist"><thead><tr><th>Week ending</th><th>Energy</th><th>Sleep</th><th>Digestion</th><th>Mood</th><th>Bloating</th><th>BMs/day</th><th>pH</th><th>Notes</th><th class="no-print"></th></tr></thead><tbody id="t-rows"></tbody></table></div>
-    <p class="small muted">Feeling off? No bowel movement for 2+ days, or reactions more than mild? <a href="contact.html">Reach out</a>.</p>
+    <div class="grid g3">
+      <div class="card" id="log-daily"><h3>Every day</h3><p>Weight (same time, after the bathroom, before eating), any symptoms, and your habits: water, movement, sunlight and supplements.</p></div>
+      <div class="card" id="log-weekly"><h3>Once a week</h3><p>Rate your energy, sleep, digestion, mood and bloating. Pick the same day each week so the trend is easy to read.</p></div>
+      <div class="card" id="log-gut"><h3>Gut and pH</h3><p>Bowel movements per day (goal: at least 1). Morning pH if you are checking it.</p></div>
+      <div class="card" id="log-fast"><h3>Fast days</h3><p>Log how you felt during and after each ProLon fast. See the <a href="fast-days.html">ProLon Fast Guide</a>.</p></div>
+      <div class="card" id="log-notes"><h3>Wins and questions</h3><p>Note wins, food reactions and questions for your next visit. We review them with you.</p></div>
+      <div class="card" id="log-labs"><h3>Lab trends</h3><p>When your labs are added, you can see your progress over time, from first labs to recheck.</p></div>
+    </div>
   </div>
 </section>
 
-<script>
-(function () {
-  var KEY = 'lbw-tracker-v1';
-  var FIELDS = [['energy', 'Energy'], ['sleep', 'Sleep'], ['digestion', 'Digestion'], ['mood', 'Mood'], ['bloating', 'Bloating']];
-  var LABELS = ['', 'Very poor', 'Poor', 'Okay', 'Good', 'Great'];
-  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
-  function store(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); return true; } catch (e) { return false; } }
-  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
-  var box = document.getElementById('t-sliders');
-  FIELDS.forEach(function (f) {
-    var row = document.createElement('div'); row.className = 'tracker-row';
-    row.innerHTML = '<label for="t-' + f[0] + '">' + f[1] + '<br><span class="small muted" id="t-' + f[0] + '-l">Okay</span></label>' +
-      '<input type="range" min="1" max="5" step="1" value="3" id="t-' + f[0] + '">' +
-      '<output id="t-' + f[0] + '-o">3</output>';
-    box.appendChild(row);
-    var inp = row.querySelector('input');
-    inp.addEventListener('input', function () {
-      document.getElementById('t-' + f[0] + '-o').textContent = inp.value;
-      document.getElementById('t-' + f[0] + '-l').textContent = f[0] === 'bloating' ? (['', 'A lot', 'Often', 'Some', 'A little', 'None'])[inp.value] : LABELS[inp.value];
-    });
-  });
-  (function(){var n=new Date();document.getElementById('t-date').value=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');})();
-  function render() {
-    var d = load().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-    var tb = document.getElementById('t-rows');
-    if (!d.length) { tb.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--ink-soft)">No weeks saved yet. Your first entry will show up here.</td></tr>'; return; }
-    tb.innerHTML = d.map(function (r, i) {
-      return '<tr><td><strong>' + esc(r.date) + '</strong></td>' + FIELDS.map(function (f) { return '<td>' + esc(r[f[0]]) + '</td>'; }).join('') +
-        '<td>' + esc(r.bm) + '</td><td>' + esc(r.ph) + '</td><td style="text-align:left;min-width:180px">' + esc(r.notes) + '</td>' +
-        '<td class="no-print"><button class="btn btn-ghost btn-sm" data-del="' + esc(r.date) + '" type="button">Delete</button></td></tr>';
-    }).join('');
-  }
-  document.getElementById('t-save').addEventListener('click', function () {
-    var date = document.getElementById('t-date').value;
-    if (!date) { document.getElementById('t-msg').textContent = 'Pick a date first.'; return; }
-    var rec = { date: date, bm: document.getElementById('t-bm').value, ph: document.getElementById('t-ph').value, notes: document.getElementById('t-notes').value.trim() };
-    FIELDS.forEach(function (f) { rec[f[0]] = document.getElementById('t-' + f[0]).value; });
-    var d = load().filter(function (r) { return r.date !== date; }); d.push(rec);
-    var ok = store(d);
-    document.getElementById('t-msg').textContent = ok ? 'Saved. Nice work checking in.' : 'Could not save in this browser. Try printing instead.';
-    render();
-  });
-  document.getElementById('t-rows').addEventListener('click', function (e) {
-    var date = e.target.getAttribute('data-del');
-    if (date && confirmDelete(e.target)) { store(load().filter(function (r) { return r.date !== date; })); render(); }
-  });
-  function confirmDelete(btn) {
-    if (btn.dataset.armed) return true;
-    btn.dataset.armed = '1'; btn.textContent = 'Tap again'; setTimeout(function () { delete btn.dataset.armed; btn.textContent = 'Delete'; }, 3000);
-    return false;
-  }
-  document.getElementById('t-clear').addEventListener('click', function (e) {
-    var b = e.target;
-    if (!b.dataset.armed) { b.dataset.armed = '1'; b.textContent = 'Tap again to clear'; setTimeout(function () { delete b.dataset.armed; b.textContent = 'Clear all'; }, 3000); return; }
-    store([]); render(); b.textContent = 'Clear all'; delete b.dataset.armed;
-  });
-  render();
-})();
-</script>
+<section id="tips" data-short="Tips" data-keywords="reminder habit consistency">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <span class="eyebrow">Make It Stick</span>
+      <h2>Tips for logging</h2>
+    </div>
+    <ul>
+      <li><strong>Set a daily reminder</strong> on your phone, like right after your morning mineral water.</li>
+      <li><strong>Missed a day?</strong> Just pick up again. No need to catch up.</li>
+      <li><strong>Before each visit,</strong> open Heads Up and look at your week. Bring your questions.</li>
+    </ul>
+    <div class="callout warn"><strong>Heads Up is not for emergencies</strong><p>We don't watch it around the clock. No bowel movement for 2+ days, or reactions more than mild? <a href="contact.html">Reach out</a>. In an emergency, call 911.</p></div>
+  </div>
+</section>

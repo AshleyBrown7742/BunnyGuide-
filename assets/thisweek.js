@@ -14,7 +14,7 @@
     food: ['Food, meals & recipes', 'food.html'],
     symptoms: ['Foods for how you feel', 'food.html#foods-for-symptoms'],
     quick: ['Quick help by symptom', 'remedies.html#quick-help'],
-    tracker: ['Log this week in your tracker', 'tracker.html'],
+    tracker: ['Log this week in Heads Up', 'tracker.html'],
     blood: ['Blood draw prep', 'testing.html#blood-draw'],
     gut: ['Gut test: how to collect', 'testing.html#gut-test'],
     gutsupport: ['Personalized gut support', 'supplements.html#gut-support'],
@@ -29,16 +29,16 @@
     var fasts = fastWeeks(reset), isFast = fasts.indexOf(w) > -1, todo = [], read = [], title = '';
     if (w === 1) { title = 'Your plan begins'; todo = ['Come to your 70-minute results review.', 'Start your supplements one at a time, as your plan says.', 'Pick the first habit to focus on.']; read = ['supp', 'rules', 'habits']; }
     else if (w === 2) { title = 'Settle in'; todo = ['Keep adding supplements one at a time.', 'Morning mineral water every day.', 'Reply to your weekly check-in text.']; read = ['water', 'rules', 'quick']; }
-    else if (w === 3) { title = 'First check-in'; todo = ['Join your 20-minute virtual check-in.', 'Bring your tracker and questions.', 'Put your first fast day on the calendar.']; read = ['tracker', 'fast', 'symptoms']; }
+    else if (w === 3) { title = 'First check-in'; todo = ['Join your 20-minute virtual check-in.', 'Log in Heads Up and bring your questions.', 'Put your first fast day on the calendar.']; read = ['tracker', 'fast', 'symptoms']; }
     else if (w === 4) { title = 'Fast day week'; todo = ['Do your first ProLon fast day.', 'Pause supplements on the fast day only.', 'Break the fast gently the next morning.']; read = ['fast', 'fastcheck', 'water']; }
     else if (w >= 5 && w <= 6) { title = 'Build the rhythm'; todo = ['Add your next habit from the list.', 'Get sunlight morning, midday and sunset.', 'Try two new recipes this week.']; read = ['habits', 'sun', 'food']; }
-    else if (w === 7) { title = 'Halfway prep'; todo = ['Your week 8 visit and labs are next week.', 'Read blood draw prep now: some supplements stop 7 days before.', 'Keep logging your tracker.']; read = ['blood', 'tracker', 'mind']; }
+    else if (w === 7) { title = 'Halfway prep'; todo = ['Your week 8 visit and labs are next week.', 'Read blood draw prep now: some supplements stop 7 days before.', 'Keep logging in Heads Up.']; read = ['blood', 'tracker', 'mind']; }
     else if (w === 8) { title = reset === 8 ? 'Reset graduation + labs' : 'Halfway point + labs'; todo = ['In-person check-in with targeted labs.', reset === 8 ? 'You graduate your Reset phase and move into maintenance habits, plus GLP-1 or hormone therapy if clinically indicated.' : 'Pick up your next 8 weeks of supplements and fast kits.', 'Fast day #2 this week.']; read = ['blood', 'fast', 'rx']; }
     else if (w >= 9 && w <= 10) { title = reset === 8 ? 'Maintenance mode' : 'Keep going'; todo = ['Keep your habits steady. Consistency is the protocol.', 'Started GLP-1 or hormones? Review your Rx guide.', 'Reply to your weekly check-in text.']; read = ['rx', 'symptoms', 'tracker']; }
     else if (w === 11) { title = 'Gut retest is next'; todo = ['Your gut retest goes out next week.', 'Plan to pause probiotics 3 to 5 days before you collect.', 'Keep eating like you normally do.']; read = ['gut', 'gutsupport', 'food']; }
     else if (w === 12) { title = 'Check-in + gut retest'; todo = ['Join your 20-minute virtual check-in.', 'Collect and mail your gut retest the same or next day.', isFast ? 'Fast day #3 this week.' : 'Keep your habits steady.']; read = ['gut', isFast ? 'fast' : 'habits', 'tracker']; }
     else if (w >= 13 && w <= 14) { title = 'Home stretch'; todo = ['Full recheck labs are coming in week 15.', 'Biotin and collagen stop 7 days before your draw.', 'Write down your wins so far.']; read = ['blood', 'tracker', 'mind']; }
-    else if (w === 15) { title = 'Recheck labs'; todo = ['Your full recheck blood draw.', 'Follow blood draw prep.', 'Bring your tracker to graduation next week.']; read = ['blood', 'tracker', 'after']; }
+    else if (w === 15) { title = 'Recheck labs'; todo = ['Your full recheck blood draw.', 'Follow blood draw prep.', 'Review your Heads Up progress before graduation.']; read = ['blood', 'tracker', 'after']; }
     else if (w === 16) { title = 'Graduation'; todo = ['Celebrate at your 60-minute graduation visit.', 'Compare your before and after.', 'Choose your next step.']; read = ['after', 'supp', 'rx']; }
     return { title: title, visit: VISITS[w] || '', fast: isFast, todo: todo, read: read };
   }
