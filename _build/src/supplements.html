@@ -7,31 +7,31 @@
     </div>
     <div class="grid g3">
       <div class="card" id="methyl-protect" data-keywords="b vitamins folate b12 methylation">
-        <div class="num">1</div><h3>Methyl Protect</h3>
+        <div class="num">1</div><h3><button class="rlink" type="button" data-supp="methyl-protect">Methyl Protect</button></h3>
         <p><strong>When:</strong> morning, after breakfast.</p>
         <p>Active B vitamins (folate, B12, B6) that power your liver's detox steps, energy and mood.</p>
         <p class="small"><strong>Tell us if</strong> you feel wired, anxious, irritable or can't sleep after starting. We can adjust.</p>
       </div>
       <div class="card" id="vitamin-d" data-keywords="vitamin d3 k2 sunshine">
-        <div class="num">2</div><h3>Vitamin D3 + K</h3>
+        <div class="num">2</div><h3><button class="rlink" type="button" data-supp="vitamin-d-5000">Vitamin D3 + K</button></h3>
         <p><strong>When:</strong> after a meal with healthy fats.</p>
         <p>Your "sunshine" nutrient for immune system, mood, bones and hormones. Vitamin K helps send calcium to your bones.</p>
         <p class="small"><strong>Tell us if</strong> you take a blood thinner like warfarin. Vitamin K can interact.</p>
       </div>
       <div class="card" id="magnesium" data-keywords="magnesium glycinate sleep calm">
-        <div class="num">3</div><h3>Magnesium Glycinate</h3>
+        <div class="num">3</div><h3><button class="rlink" type="button" data-supp="magnesium-glycinate">Magnesium Glycinate</button></h3>
         <p><strong>When:</strong> evening or bedtime.</p>
         <p>A key mineral for your "soil pH." Calms the nervous system, supports sleep and regularity, and activates vitamin D.</p>
         <p class="small"><strong>Loose stools?</strong> Take fewer capsules and build up slowly.</p>
       </div>
       <div class="card" id="fiber" data-keywords="glp-1 fiber powder binder regular">
-        <div class="num">4</div><h3>GLP-1 Daily Support Fiber</h3>
+        <div class="num">4</div><h3><button class="rlink" type="button" data-supp="glp1-fiber">GLP-1 Daily Support Fiber</button></h3>
         <p><strong>When:</strong> one scoop in water, before a meal.</p>
         <p>Feeds your good gut bacteria, keeps you regular, carries waste out, and supports steady blood sugar and fullness.</p>
         <p class="small"><strong>Start slow</strong> and drink a full glass of water with it.</p>
       </div>
       <div class="card" id="better-bitters" data-keywords="bitters digestion bloating spray">
-        <div class="num">5</div><h3>Better Bitters</h3>
+        <div class="num">5</div><h3><button class="rlink" type="button" data-supp="better-bitters">Better Bitters</button></h3>
         <p><strong>When:</strong> 10 to 15 minutes before heavy meals (meat, dairy, foods that bloat you), 1 to 2 times a day.</p>
         <p>A plant-based spray that wakes up stomach acid and bile so you digest heavier meals better.</p>
         <p class="small"><strong>Contains alcohol.</strong> Tell us if you avoid alcohol, have ulcers, reflux or gallstones.</p>
@@ -45,7 +45,24 @@
   </div>
 </section>
 
-<section class="alt" id="rules" data-short="Safety Rules" data-keywords="timing medications safety rules interactions">
+<section class="alt" id="library" data-short="All Supplements" data-keywords="supplement library list vegan kosher gluten free ingredients certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Our Dispensary</span>
+      <h2>Supplement library</h2>
+      <p>Every supplement we carry. Tap one to see what it does, the ingredients, dietary info, certifications, the best time of day to take it and tips. Your plan tells you which ones are yours.</p>
+    </div>
+    <div class="supp-tools no-print">
+      <input class="field" id="supp-q" type="search" placeholder="Search by name, ingredient or symptom" aria-label="Search supplements">
+      <div class="supp-chips" id="supp-chips" role="group" aria-label="Filter supplements"></div>
+    </div>
+    <div class="supp-grid" id="supp-grid"></div>
+    <p class="small muted" id="supp-count" style="margin-top:12px"></p>
+    <div class="callout" style="margin-top:18px"><strong>About this information</strong><p>Compiled from Fullscript and brand listings, November 2026. Every brand on Fullscript must show proof of third-party cGMP certification each year. Formulas can change, so always check your bottle. None of these products list kosher certification on Fullscript; if you keep kosher, ask us and we'll check your specific bottles.</p></div>
+  </div>
+</section>
+
+<section id="rules" data-short="Safety Rules" data-keywords="timing medications safety rules interactions">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Keep It Safe</span>
@@ -62,7 +79,7 @@
   </div>
 </section>
 
-<section id="gut-reset-kit" data-short="Gut Reset Kit" data-keywords="sbo kit dysbiosis overgrowth wormwood oregano">
+<section class="alt" id="gut-reset-kit" data-short="Gut Reset Kit" data-keywords="sbo kit dysbiosis overgrowth wormwood oregano">
   <div class="wrap narrow">
     <span class="eyebrow">Only If Your Gut Test Calls for It</span>
     <h2 style="margin:6px 0 14px">The SBO Gut Reset</h2>
@@ -84,7 +101,7 @@
   </div>
 </section>
 
-<section class="alt" id="add-ons" data-short="Add-Ons" data-keywords="spike protein iron heavy metals add on extra">
+<section id="add-ons" data-short="Add-Ons" data-keywords="spike protein iron heavy metals add on extra">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Only If Recommended for You</span>
@@ -100,7 +117,7 @@
   </div>
 </section>
 
-<section id="refills" data-short="Refills" data-keywords="order reorder fullscript refill buy">
+<section class="alt" id="refills" data-short="Refills" data-keywords="order reorder fullscript refill buy">
   <div class="wrap narrow">
     <span class="eyebrow">Running Low?</span>
     <h2 style="margin:6px 0 14px">Refills &amp; ordering</h2>
@@ -112,7 +129,7 @@
   </div>
 </section>
 
-<section class="alt" id="supplement-faq" data-short="Supplement FAQ" data-nojump>
+<section id="supplement-faq" data-short="Supplement FAQ" data-nojump>
   <div class="wrap narrow">
     <div class="section-head"><span class="eyebrow">Common Questions</span><h2>Supplement questions</h2></div>
     <details class="acc" id="missed-supplement"><summary>I forgot my supplements. Should I double up?</summary><div class="body"><p>No. Just take your next dose at the usual time. Missing a day doesn't undo anything.</p></div></details>
@@ -122,3 +139,4 @@
     <details class="acc" id="pill-trouble"><summary>I have trouble swallowing pills.</summary><div class="body"><p>Let us know. Many supplements come as powders, liquids or smaller capsules, and some capsules can be opened into food. Ask before opening any capsule.</p></div></details>
   </div>
 </section>
+<script src="assets/supplements.js"></script>

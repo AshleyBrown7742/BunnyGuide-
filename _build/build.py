@@ -218,6 +218,12 @@ def build():
     for rid, r in recipes.items():
         index.append({"p": "Recipe", "t": r["title"], "u": f"food.html#r-{rid}",
                       "b": "Ingredients: " + ", ".join(r["ingredients"]), "k": "recipe " + r["tag"]})
+    # Supplement library: pop-up data + search entries
+    supps = json.loads((ROOT / "supplements.json").read_text())
+    (OUT / "assets" / "supplements.js").write_text("window.SUPPS=" + json.dumps(supps, ensure_ascii=False) + ";\n")
+    for sid, x in supps.items():
+        index.append({"p": "Supplement", "t": f'{x["name"]} ({x["brand"]})', "u": f"supplements.html#s-{sid}",
+                      "b": x["what"] + " When: " + x["when"] + ". " + " ".join(x["tips"]), "k": "supplement " + x["cat"]})
     (OUT / "assets" / "search-index.js").write_text("window.GUIDE_INDEX=" + json.dumps(index, ensure_ascii=False) + ";\n")
     print(f"Built {len(PAGES)} pages, {len(index)} search entries")
 
