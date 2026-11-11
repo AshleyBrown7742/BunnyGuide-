@@ -269,7 +269,7 @@ footer.site .disclaimer { border-top: 1px solid rgba(255,255,255,0.12); margin-t
 .mobile-bar svg { width: 20px; height: 20px; stroke: var(--tan-light); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Responsive */
-@media (max-width: 1180px) {
+@media (max-width: 1320px) {
   .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column;
     align-items: stretch; gap: 0; border-bottom: 1px solid var(--line); padding: 8px 24px 16px; }
   .nav-links.open { display: flex; }
