@@ -43,8 +43,8 @@ PAGES = [
     ("supplements", "Supplements", "Supplements", "Your Core 5 and Beyond",
      "Supplements, simplified.",
      "What each one does, when to take it, and the rules that keep you safe."),
-    ("fast-days", "Fast Days", "ProLon Fast Days", "One Day, With Food",
-     "Your ProLon fast days.",
+    ("fast-days", "Fast Days", "ProLon Fast Guide", "One Day, With Food",
+     "Your ProLon fast guide.",
      "Everything you need for an easy fast day: the day before, the day of, and the day after."),
     ("testing", "Testing", "Testing & Labs", "Prep for Accurate Results",
      "Testing & lab prep.",
@@ -62,7 +62,7 @@ PAGES = [
      "Contact the office.",
      "Questions, scheduling, or something doesn't feel right? Reach out. We'd always rather hear from you."),
 ]
-NAV = ["start-here", "your-program", "daily-habits", "food", "remedies", "supplements", "testing", "lip-bunny-rx", "faq", "contact"]
+NAV = ["start-here", "your-program", "daily-habits", "food", "remedies", "supplements", "fast-days", "testing", "lip-bunny-rx", "faq", "contact"]
 LABEL = {p[0]: p[1] for p in PAGES}
 TITLE = {p[0]: p[2] for p in PAGES}
 
