@@ -67,9 +67,9 @@ NAV = ["start-here", "your-program", "daily-habits", "food", "remedies", "supple
 GROUPS = [
     ("My Program", "your-program", ["start-here", "your-program", "fast-days", "tracker"]),
     ("Habits & Food", "daily-habits", ["daily-habits", "food"]),
-    ("Natural Remedies", "remedies", ["remedies"]),
     ("Supplements", "supplements", ["supplements"]),
     ("Testing & Rx", "testing", ["testing", "lip-bunny-rx"]),
+    ("Natural Remedies", "remedies", ["remedies"]),
     ("Help", "faq", ["faq", "contact"]),
 ]
 LABEL = {p[0]: p[1] for p in PAGES}
