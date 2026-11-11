@@ -40,7 +40,7 @@ PAGES = [
     ("remedies", "Remedies", "Home Remedies", "Gentle Support at Home",
      "Home remedies & swaps.",
      "Baths, teas, herbs, binders and simple swaps that support your body between visits."),
-    ("supplements", "Supplements", "Supplements", "Your Core 5 and Beyond",
+    ("supplements", "Supplements", "Supplements", "Your Customized Plan",
      "Supplements, simplified.",
      "What each one does, when to take it, and the rules that keep you safe."),
     ("fast-days", "Fast Days", "ProLon Fast Guide", "One Day, With Food",
