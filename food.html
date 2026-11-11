@@ -94,7 +94,7 @@
     <div class="section-head">
       <span class="eyebrow">A Template, Not a Rulebook</span>
       <h2>2-week meal plan</h2>
-      <p>Swap any meal, repeat favorites, and rotate these two weeks for your whole program.</p>
+      <p>Tap any meal to open its recipe. Swap meals, repeat favorites, and rotate these two weeks for your whole program.</p>
     </div>
     <details class="acc" id="meal-week-1" open>
       <summary>Week 1</summary>
@@ -103,13 +103,13 @@
           <table>
             <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th><th>Snack</th></tr></thead>
             <tbody>
-              <tr><td><strong>1</strong></td><td>Veggie scramble, spinach and avocado</td><td>Grilled chicken salad, lemon-olive oil dressing</td><td>Baked salmon, roasted broccoli, quinoa</td><td>Apple + almonds</td></tr>
-              <tr><td><strong>2</strong></td><td>Chia pudding with berries</td><td>Turkey lettuce wraps, veggies</td><td>Chicken or tofu stir-fry, mixed veggies, rice</td><td>Carrots + hummus</td></tr>
-              <tr><td><strong>3</strong></td><td>Bunny Green smoothie</td><td>Lentil soup + side salad</td><td>Shrimp tacos, corn tortillas, cabbage slaw with cilantro</td><td>Cucumber + guacamole</td></tr>
-              <tr><td><strong>4</strong></td><td>Eggs, sautéed greens, sweet potato hash</td><td>Quinoa bowl, roasted veggies, chickpeas, parsley</td><td>Herb-roasted chicken thighs, asparagus, wild rice</td><td>Walnuts + orange</td></tr>
-              <tr><td><strong>5</strong></td><td><a href="#overnight-chia">Bunny Overnight Chia</a></td><td>Big salad, grilled salmon</td><td>Turkey meatballs, zucchini noodles, basil-oregano marinara</td><td>Celery + almond butter</td></tr>
-              <tr><td><strong>6</strong></td><td>Smoothie bowl, granola and seeds</td><td>Leftover turkey meatball bowl</td><td>Baked cod, roasted brussels sprouts, quinoa</td><td>Berries + coconut yogurt</td></tr>
-              <tr><td><strong>7</strong></td><td>Veggie omelet with herbs</td><td>Veggie soup</td><td>Grass-fed burger, lettuce wrap, side salad, sauerkraut</td><td>Apple + almond butter</td></tr>
+              <tr><td><strong>1</strong></td><td><button class="rlink" type="button" data-recipe="veggie-scramble">Veggie scramble, spinach and avocado</button></td><td><button class="rlink" type="button" data-recipe="big-salad">Grilled chicken salad, lemon-olive oil dressing</button></td><td><button class="rlink" type="button" data-recipe="salmon-sheet-pan">Baked salmon, roasted broccoli, quinoa</button></td><td>Apple + almonds</td></tr>
+              <tr><td><strong>2</strong></td><td><button class="rlink" type="button" data-recipe="chia-pudding">Chia pudding with berries</button></td><td><button class="rlink" type="button" data-recipe="lettuce-wraps">Turkey lettuce wraps, veggies</button></td><td><button class="rlink" type="button" data-recipe="stir-fry">Chicken or tofu stir-fry, mixed veggies, rice</button></td><td>Carrots + hummus</td></tr>
+              <tr><td><strong>3</strong></td><td><button class="rlink" type="button" data-recipe="bunny-green">Bunny Green smoothie</button></td><td><button class="rlink" type="button" data-recipe="lentil-soup">Lentil soup + side salad</button></td><td><button class="rlink" type="button" data-recipe="shrimp-tacos">Shrimp tacos, corn tortillas, cabbage slaw with cilantro</button></td><td>Cucumber + guacamole</td></tr>
+              <tr><td><strong>4</strong></td><td><button class="rlink" type="button" data-recipe="eggs-greens-hash">Eggs, sautéed greens, sweet potato hash</button></td><td><button class="rlink" type="button" data-recipe="quinoa-bowl">Quinoa bowl, roasted veggies, chickpeas, parsley</button></td><td><button class="rlink" type="button" data-recipe="herb-chicken">Herb-roasted chicken thighs, asparagus, wild rice</button></td><td>Walnuts + orange</td></tr>
+              <tr><td><strong>5</strong></td><td><button class="rlink" type="button" data-recipe="overnight-chia">Bunny Overnight Chia</button></td><td><button class="rlink" type="button" data-recipe="big-salad">Big salad, grilled salmon</button></td><td><button class="rlink" type="button" data-recipe="turkey-meatballs">Turkey meatballs, zucchini noodles, basil-oregano marinara</button></td><td>Celery + almond butter</td></tr>
+              <tr><td><strong>6</strong></td><td><button class="rlink" type="button" data-recipe="smoothie-bowl">Smoothie bowl, granola and seeds</button></td><td><button class="rlink" type="button" data-recipe="meatball-bowl">Leftover turkey meatball bowl</button></td><td><button class="rlink" type="button" data-recipe="baked-cod">Baked cod, roasted brussels sprouts, quinoa</button></td><td>Berries + coconut yogurt</td></tr>
+              <tr><td><strong>7</strong></td><td><button class="rlink" type="button" data-recipe="veggie-omelet">Veggie omelet with herbs</button></td><td><button class="rlink" type="button" data-recipe="veggie-soup">Veggie soup</button></td><td><button class="rlink" type="button" data-recipe="turkey-burger">Grass-fed burger, lettuce wrap, side salad, sauerkraut</button></td><td>Apple + almond butter</td></tr>
             </tbody>
           </table>
         </div>
@@ -122,38 +122,18 @@
           <table>
             <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th><th>Snack</th></tr></thead>
             <tbody>
-              <tr><td><strong>8</strong></td><td>Smoothie bowl, hemp seeds and granola</td><td>Salmon salad, mixed greens</td><td>Chicken fajita bowl, peppers, onions, rice, cilantro</td><td>Orange + walnuts</td></tr>
-              <tr><td><strong>9</strong></td><td>Chia pudding, mango</td><td>Turkey and veggie soup</td><td>Baked cod, roasted cabbage, wild rice</td><td>Cucumber + hummus</td></tr>
-              <tr><td><strong>10</strong></td><td>Veggie scramble, side of berries</td><td>Big salad, grilled shrimp</td><td>Herb chicken, roasted carrots, quinoa</td><td>Celery + almond butter</td></tr>
-              <tr><td><strong>11</strong></td><td><a href="#overnight-chia">Bunny Overnight Chia</a></td><td>Lentil and veggie bowl</td><td>Turkey burger, lettuce wrap, side salad</td><td>Apple + almonds</td></tr>
-              <tr><td><strong>12</strong></td><td>Bunny Green smoothie</td><td>Leftover turkey burger bowl</td><td>Baked salmon, asparagus, sweet potato</td><td>Berries + coconut yogurt</td></tr>
-              <tr><td><strong>13</strong></td><td>Eggs, sautéed spinach, avocado</td><td>Chicken salad, olive oil dressing</td><td>Shrimp stir-fry, mixed veggies, rice</td><td>Carrots + guacamole</td></tr>
-              <tr><td><strong>14</strong></td><td>Smoothie of choice</td><td>Veggie soup</td><td>Celebration dinner: your choice, eaten mindfully</td><td>Dark chocolate square</td></tr>
+              <tr><td><strong>8</strong></td><td><button class="rlink" type="button" data-recipe="smoothie-bowl">Smoothie bowl, hemp seeds and granola</button></td><td><button class="rlink" type="button" data-recipe="salmon-salad">Salmon salad, mixed greens</button></td><td><button class="rlink" type="button" data-recipe="fajita-bowl">Chicken fajita bowl, peppers, onions, rice, cilantro</button></td><td>Orange + walnuts</td></tr>
+              <tr><td><strong>9</strong></td><td><button class="rlink" type="button" data-recipe="chia-pudding">Chia pudding, mango</button></td><td><button class="rlink" type="button" data-recipe="turkey-veggie-soup">Turkey and veggie soup</button></td><td><button class="rlink" type="button" data-recipe="baked-cod">Baked cod, roasted cabbage, wild rice</button></td><td>Cucumber + hummus</td></tr>
+              <tr><td><strong>10</strong></td><td><button class="rlink" type="button" data-recipe="veggie-scramble">Veggie scramble, side of berries</button></td><td><button class="rlink" type="button" data-recipe="big-salad">Big salad, grilled shrimp</button></td><td><button class="rlink" type="button" data-recipe="herb-chicken">Herb chicken, roasted carrots, quinoa</button></td><td>Celery + almond butter</td></tr>
+              <tr><td><strong>11</strong></td><td><button class="rlink" type="button" data-recipe="overnight-chia">Bunny Overnight Chia</button></td><td><button class="rlink" type="button" data-recipe="lentil-bowl">Lentil and veggie bowl</button></td><td><button class="rlink" type="button" data-recipe="turkey-burger">Turkey burger, lettuce wrap, side salad</button></td><td>Apple + almonds</td></tr>
+              <tr><td><strong>12</strong></td><td><button class="rlink" type="button" data-recipe="bunny-green">Bunny Green smoothie</button></td><td><button class="rlink" type="button" data-recipe="meatball-bowl">Leftover turkey burger bowl</button></td><td><button class="rlink" type="button" data-recipe="salmon-sheet-pan">Baked salmon, asparagus, sweet potato</button></td><td>Berries + coconut yogurt</td></tr>
+              <tr><td><strong>13</strong></td><td><button class="rlink" type="button" data-recipe="veggie-scramble">Eggs, sautéed spinach, avocado</button></td><td><button class="rlink" type="button" data-recipe="chicken-salad">Chicken salad, olive oil dressing</button></td><td><button class="rlink" type="button" data-recipe="stir-fry">Shrimp stir-fry, mixed veggies, rice</button></td><td>Carrots + guacamole</td></tr>
+              <tr><td><strong>14</strong></td><td><button class="rlink" type="button" data-recipe="berry-antioxidant">Smoothie of choice</button></td><td><button class="rlink" type="button" data-recipe="veggie-soup">Veggie soup</button></td><td><button class="rlink" type="button" data-recipe="celebration-dinner">Celebration dinner: your choice, eaten mindfully</button></td><td><button class="rlink" type="button" data-recipe="dark-chocolate">Dark chocolate square</button></td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </details>
-    <div class="card" id="overnight-chia" data-keywords="chia pudding breakfast recipe overnight raspberries" style="margin-top:16px">
-      <span class="tag">Breakfast Recipe · Make Tonight, Eat Tomorrow</span>
-      <h3>Bunny Overnight Chia</h3>
-      <div class="grid g2" style="margin-top:8px">
-        <ul class="check">
-          <li>3 tbsp chia seeds</li>
-          <li>3/4 cup milk of choice (almond, coconut or oat)</li>
-          <li>A handful of frozen raspberries</li>
-          <li>1 tbsp dark chocolate chips</li>
-          <li>1 tbsp pumpkin seeds</li>
-          <li>1 spoonful almond butter</li>
-        </ul>
-        <ol class="steps">
-          <li>Stir chia and milk in a jar. Wait 5 minutes and stir again so it doesn't clump.</li>
-          <li>Add the frozen raspberries on top. They thaw overnight into a natural jam.</li>
-          <li>Refrigerate overnight.</li>
-          <li>In the morning, top with chocolate chips, pumpkin seeds and almond butter.</li>
-        </ol>
-      </div>
-    </div>
     <div class="callout tip"><strong>Biggest time-saver</strong><p>Cook proteins and grains in batches on Sunday. Make 2 or 3 chia jars at once.</p></div>
   </div>
 </section>
@@ -180,15 +160,15 @@
     <div class="section-head">
       <span class="eyebrow">Blend, Sip, Done</span>
       <h2>Smoothies</h2>
-      <p>Add a scoop of collagen or clean protein powder to turn any of these into a full meal.</p>
+      <p>Tap a smoothie for the full recipe. Add a scoop of collagen or clean protein powder to turn any of these into a full meal.</p>
     </div>
     <div class="grid g3">
-      <div class="card" id="bunny-green"><span class="tag sage">Liver support</span><h3>Bunny Green</h3><p>Spinach, cucumber, green apple, lemon juice, a small handful of parsley, filtered water.</p></div>
-      <div class="card"><span class="tag">Antioxidants</span><h3>Berry Antioxidant</h3><p>Mixed berries, coconut yogurt, chia seeds, almond milk.</p></div>
-      <div class="card"><span class="tag">Digestion</span><h3>Tropical Gut Reset</h3><p>Pineapple, mango, ginger, coconut water, fresh mint.</p></div>
-      <div class="card"><span class="tag">Energy</span><h3>Creamy Cacao</h3><p>Banana, cacao powder, almond butter, almond milk, cinnamon.</p></div>
-      <div class="card"><span class="tag">Circulation</span><h3>Beet and Berry</h3><p>Cooked beet, blueberries, banana, almond milk, fresh ginger.</p></div>
-      <div class="card"><span class="tag">Inflammation</span><h3>Golden Turmeric</h3><p>Frozen mango, turmeric, black pepper, coconut milk, honey.</p></div>
+      <div class="card"><span class="tag sage">Liver support</span><h3><button class="rlink" type="button" data-recipe="bunny-green">Bunny Green</button></h3><p>Spinach, cucumber, green apple, lemon juice, a small handful of parsley, filtered water.</p></div>
+      <div class="card"><span class="tag">Antioxidants</span><h3><button class="rlink" type="button" data-recipe="berry-antioxidant">Berry Antioxidant</button></h3><p>Mixed berries, coconut yogurt, chia seeds, almond milk.</p></div>
+      <div class="card"><span class="tag">Digestion</span><h3><button class="rlink" type="button" data-recipe="tropical-gut">Tropical Gut Reset</button></h3><p>Pineapple, mango, ginger, coconut water, fresh mint.</p></div>
+      <div class="card"><span class="tag">Energy</span><h3><button class="rlink" type="button" data-recipe="creamy-cacao">Creamy Cacao</button></h3><p>Banana, cacao powder, almond butter, almond milk, cinnamon.</p></div>
+      <div class="card"><span class="tag">Circulation</span><h3><button class="rlink" type="button" data-recipe="beet-berry">Beet and Berry</button></h3><p>Cooked beet, blueberries, banana, almond milk, fresh ginger.</p></div>
+      <div class="card"><span class="tag">Inflammation</span><h3><button class="rlink" type="button" data-recipe="golden-turmeric">Golden Turmeric</button></h3><p>Frozen mango, turmeric, black pepper, coconut milk, honey.</p></div>
     </div>
   </div>
 </section>
@@ -198,14 +178,15 @@
     <div class="section-head">
       <span class="eyebrow">Yes, You Can Have Dessert</span>
       <h2>Sweet treats</h2>
+      <p>Tap a treat for the recipe.</p>
     </div>
     <div class="grid g3">
-      <div class="card"><h3>Dark chocolate + sea salt</h3><p>1 to 2 squares, 70%+ cacao.</p></div>
-      <div class="card"><h3>Energy bites</h3><p>Dates, almond butter, chia seeds and cinnamon, rolled and chilled.</p></div>
-      <div class="card"><h3>Frozen banana bites</h3><p>Banana slices dipped in dark chocolate, then frozen.</p></div>
-      <div class="card"><h3>Baked cinnamon apples</h3><p>Sliced apple, cinnamon and a drizzle of honey.</p></div>
-      <div class="card"><h3>Chia pudding cups</h3><p>Chia, almond milk, vanilla and berries.</p></div>
-      <div class="card"><h3>Berries + coconut whip</h3><p>Simple, fresh, done.</p></div>
+      <div class="card"><h3><button class="rlink" type="button" data-recipe="dark-chocolate">Dark chocolate + sea salt</button></h3><p>1 to 2 squares, 70%+ cacao.</p></div>
+      <div class="card"><h3><button class="rlink" type="button" data-recipe="energy-bites">Energy bites</button></h3><p>Dates, almond butter, chia seeds and cinnamon, rolled and chilled.</p></div>
+      <div class="card"><h3><button class="rlink" type="button" data-recipe="banana-bites">Frozen banana bites</button></h3><p>Banana slices dipped in dark chocolate, then frozen.</p></div>
+      <div class="card"><h3><button class="rlink" type="button" data-recipe="cinnamon-apples">Baked cinnamon apples</button></h3><p>Sliced apple, cinnamon and a drizzle of honey.</p></div>
+      <div class="card"><h3><button class="rlink" type="button" data-recipe="chia-cups">Chia pudding cups</button></h3><p>Chia, almond milk, vanilla and berries.</p></div>
+      <div class="card"><h3><button class="rlink" type="button" data-recipe="berries-whip">Berries + coconut whip</button></h3><p>Simple, fresh, done.</p></div>
     </div>
   </div>
 </section>
@@ -322,6 +303,8 @@
     <div class="callout warn"><strong>Check with us first</strong><p>Start with 12:12 for at least a week before tightening. Black coffee, plain tea and water don't break a fast. If you feel dizzy, shaky or unwell, eat. Ask us first if you take blood sugar medication, are pregnant or breastfeeding, or have a history of disordered eating.</p></div>
   </div>
 </section>
+
+<script src="assets/recipes.js"></script>
 
 </main>
 <footer class="site">

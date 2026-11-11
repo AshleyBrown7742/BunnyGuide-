@@ -131,3 +131,48 @@
   window.addEventListener('hashchange', openHash);
   openHash();
 })();
+
+/* Recipe pop-ups: any [data-recipe] element opens window.RECIPES[id]. Deep link: #r-<id> */
+(function () {
+  var R = window.RECIPES;
+  if (!R) return;
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+  var ov = document.createElement('div');
+  ov.className = 'recipe-overlay'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+  document.body.appendChild(ov);
+  var lastFocus = null;
+  function open(id, push) {
+    var r = R[id]; if (!r) return;
+    lastFocus = document.activeElement;
+    ov.setAttribute('aria-label', r.title);
+    ov.innerHTML = '<div class="recipe-card"><div class="rc-head"><span class="eyebrow">' + esc(r.tag) + '</span><h2>' + esc(r.title) +
+      '</h2><div class="rc-meta"><span>Serves ' + esc(r.serves) + '</span><span>' + esc(r.time) + '</span></div>' +
+      '<button class="rc-close" type="button" aria-label="Close recipe">&times;</button></div><div class="rc-body">' +
+      '<h4>Ingredients</h4><ul class="check">' + r.ingredients.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' +
+      '<h4 style="margin-top:18px">Steps</h4><ol class="steps">' + r.steps.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ol>' +
+      (r.tip ? '<div class="callout tip"><strong>Bunny Tip</strong><p>' + esc(r.tip) + '</p></div>' : '') +
+      '<div class="rc-actions"><button class="btn btn-ghost btn-sm rc-print" type="button">Print recipe</button><button class="btn btn-primary btn-sm rc-done" type="button">Close</button></div></div></div>';
+    ov.classList.add('open'); document.body.style.overflow = 'hidden';
+    if (push !== false) history.replaceState(null, '', '#r-' + id);
+    ov.querySelector('.rc-close').focus();
+  }
+  function close() {
+    if (!ov.classList.contains('open')) return;
+    ov.classList.remove('open'); document.body.style.overflow = '';
+    if (/^#r-/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
+    if (lastFocus) lastFocus.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-recipe]');
+    if (t) { e.preventDefault(); open(t.getAttribute('data-recipe')); return; }
+    if (e.target === ov || e.target.closest('.rc-close') || e.target.closest('.rc-done')) close();
+    if (e.target.closest('.rc-print')) {
+      document.body.classList.add('printing-recipe'); window.print();
+      setTimeout(function () { document.body.classList.remove('printing-recipe'); }, 500);
+    }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  function fromHash() { var m = location.hash.match(/^#r-(.+)$/); if (m) open(m[1], false); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();

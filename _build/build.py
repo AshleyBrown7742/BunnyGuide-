@@ -212,6 +212,12 @@ def build():
     for slug, label, title, eyebrow, heading, intro in PAGES:
         if slug != "index":
             index.append({"p": "Page", "t": title, "u": href(slug), "b": re.sub('<[^>]+>', '', intro), "k": label})
+    # Recipes: pop-up data for the food page + search entries
+    recipes = json.loads((ROOT / "recipes.json").read_text())
+    (OUT / "assets" / "recipes.js").write_text("window.RECIPES=" + json.dumps(recipes, ensure_ascii=False) + ";\n")
+    for rid, r in recipes.items():
+        index.append({"p": "Recipe", "t": r["title"], "u": f"food.html#r-{rid}",
+                      "b": "Ingredients: " + ", ".join(r["ingredients"]), "k": "recipe " + r["tag"]})
     (OUT / "assets" / "search-index.js").write_text("window.GUIDE_INDEX=" + json.dumps(index, ensure_ascii=False) + ";\n")
     print(f"Built {len(PAGES)} pages, {len(index)} search entries")
 
