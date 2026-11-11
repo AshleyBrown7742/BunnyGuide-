@@ -12,6 +12,14 @@ Live site (after GitHub Pages is turned on): https://ashleybrown7742.github.io/B
 
 Phone, address, Fullscript and main-site links live at the top of `_build/build.py`. Change them once there.
 
+## Brand
+
+- Colors: pink #df6299, blush #f0dae1, gold #aa8b58, black #1d1b19, cream #f1ece5
+- Fonts: Anton (headers), Montserrat (body), self-hosted in `assets/fonts`
+- Logo: replace `assets/logo.svg` with the real Lip Bunny logo (keep the same file name, or update the two `logo.svg` references in `_build/build.py`)
+- Main menu groups live in `GROUPS` at the top of `_build/build.py`
+- The "This week" guide content lives in `assets/thisweek.js`
+
 ## Rules for content
 
 - No exact prescription doses on this site. Patients follow their label.

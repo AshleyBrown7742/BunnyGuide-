@@ -63,6 +63,15 @@ PAGES = [
      "Questions, scheduling, or something doesn't feel right? Reach out. We'd always rather hear from you."),
 ]
 NAV = ["start-here", "your-program", "daily-habits", "food", "remedies", "supplements", "fast-days", "testing", "lip-bunny-rx", "faq", "contact"]
+# Grouped main menu: (label, landing page, [pages])
+GROUPS = [
+    ("My Program", "your-program", ["start-here", "your-program", "fast-days", "tracker"]),
+    ("Habits & Food", "daily-habits", ["daily-habits", "food"]),
+    ("Natural Remedies", "remedies", ["remedies"]),
+    ("Supplements", "supplements", ["supplements"]),
+    ("Testing & Rx", "testing", ["testing", "lip-bunny-rx"]),
+    ("Help", "faq", ["faq", "contact"]),
+]
 LABEL = {p[0]: p[1] for p in PAGES}
 TITLE = {p[0]: p[2] for p in PAGES}
 
@@ -70,14 +79,22 @@ def href(slug):
     return "index.html" if slug == "index" else f"{slug}.html"
 
 def header(active):
-    links = "".join(
-        f'<a href="{href(s)}"{" class=\"active\" aria-current=\"page\"" if s == active else ""}>{LABEL[s]}</a>' for s in NAV)
+    items = []
+    for label, landing, pages in GROUPS:
+        on = active in pages
+        cls = ' class="active"' if on else ''
+        if len(pages) == 1:
+            items.append(f'<div class="nav-item"><a href="{href(landing)}"{cls}{" aria-current=\"page\"" if on else ""}>{label}</a></div>')
+        else:
+            sub = "".join(f'<a href="{href(p)}"{" class=\"active\" aria-current=\"page\"" if p == active else ""}>{TITLE[p]}</a>' for p in pages)
+            items.append(f'<div class="nav-item has-sub"><a href="{href(landing)}"{cls}>{label}</a><div class="sub">{sub}</div></div>')
+    links = "".join(items)
     return f'''<a class="skip" href="#main">Skip to content</a>
 <div class="top">
   <div class="call-banner">Questions? Call <a href="{TEL}">{PHONE}</a> or message us in the Symplast for Patients app. &nbsp;<span class="muted">Emergency? Call 911.</span></div>
   <nav class="main" aria-label="Main">
     <div class="wrap">
-      <a href="index.html" class="logo">lip bunny <span>wellness</span><small>Patient Guide</small></a>
+      <a href="index.html" class="logo"><img class="logo-mark" src="assets/logo.svg" alt="Lip Bunny" width="46" height="46"><span class="logo-text"><b>Lip Bunny</b><small>Wellness &middot; Patient Guide</small></span></a>
       <div class="nav-links">{links}</div>
       <div style="display:flex;gap:8px;align-items:center">
         <button class="icon-btn" data-open-search aria-label="Search the guide">
@@ -94,7 +111,7 @@ def footer():
   <div class="wrap">
     <div class="cols">
       <div>
-        <a href="index.html" class="logo">lip bunny <span style="color:var(--tan-light)">wellness</span></a>
+        <a href="index.html" class="logo"><img class="logo-mark" src="assets/logo.svg" alt="Lip Bunny" width="46" height="46"><span class="logo-text"><b style="color:#fff">Lip Bunny</b><small style="color:var(--tan-light)">Wellness</small></span></a>
         <p style="margin-top:12px">A Lip Bunny Beauty Wellness program.<br>Root cause medicine that blends Eastern and Western care.</p>
         <p><a href="{TEL}">{PHONE}</a><br><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></p>
       </div>
@@ -130,11 +147,9 @@ HEAD = '''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} · Lip Bunny Wellness</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#2b231d">
+<meta name="theme-color" content="#1d1b19">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>

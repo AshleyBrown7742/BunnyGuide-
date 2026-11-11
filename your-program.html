@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Program · Lip Bunny Wellness</title>
 <meta name="description" content="What happens, when it happens, and what your job is at each step.">
-<meta name="theme-color" content="#2b231d">
+<meta name="theme-color" content="#1d1b19">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -19,8 +17,8 @@
   <div class="call-banner">Questions? Call <a href="tel:+15083882200">(508) 388-2200</a> or message us in the Symplast for Patients app. &nbsp;<span class="muted">Emergency? Call 911.</span></div>
   <nav class="main" aria-label="Main">
     <div class="wrap">
-      <a href="index.html" class="logo">lip bunny <span>wellness</span><small>Patient Guide</small></a>
-      <div class="nav-links"><a href="start-here.html">Start Here</a><a href="your-program.html" class="active" aria-current="page">Your Program</a><a href="daily-habits.html">Daily Habits</a><a href="food.html">Food</a><a href="remedies.html">Natural Remedies</a><a href="supplements.html">Supplements</a><a href="fast-days.html">Fast Days</a><a href="testing.html">Testing</a><a href="lip-bunny-rx.html">Lip Bunny Rx</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <a href="index.html" class="logo"><img class="logo-mark" src="assets/logo.svg" alt="Lip Bunny" width="46" height="46"><span class="logo-text"><b>Lip Bunny</b><small>Wellness &middot; Patient Guide</small></span></a>
+      <div class="nav-links"><div class="nav-item has-sub"><a href="your-program.html" class="active">My Program</a><div class="sub"><a href="start-here.html">Start Here</a><a href="your-program.html" class="active" aria-current="page">Your Program</a><a href="fast-days.html">ProLon Fast Guide</a><a href="tracker.html">Weekly Tracker</a></div></div><div class="nav-item has-sub"><a href="daily-habits.html">Habits & Food</a><div class="sub"><a href="daily-habits.html">Daily Habits</a><a href="food.html">Food & Recipes</a></div></div><div class="nav-item"><a href="remedies.html">Natural Remedies</a></div><div class="nav-item"><a href="supplements.html">Supplements</a></div><div class="nav-item has-sub"><a href="testing.html">Testing & Rx</a><div class="sub"><a href="testing.html">Testing & Labs</a><a href="lip-bunny-rx.html">Lip Bunny Rx Patient Guides</a></div></div><div class="nav-item has-sub"><a href="faq.html">Help</a><div class="sub"><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a></div></div></div>
       <div style="display:flex;gap:8px;align-items:center">
         <button class="icon-btn" data-open-search aria-label="Search the guide">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</button>
@@ -38,7 +36,11 @@
   </div>
 </header>
 <nav class="jump" aria-label="On this page"><div class="wrap"><a href="#tracks">Your Track</a><a href="#roadmap">Roadmap</a><a href="#tools">Your Tools</a><a href="#after">After Graduation</a></div></nav>
-<section id="tracks" data-short="Your Track">
+<section class="tight" id="this-week" data-short="This Week" data-keywords="this week what to do">
+  <div class="wrap"><div data-this-week></div></div>
+</section>
+
+<section class="alt" id="tracks" data-short="Your Track">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">8 or 16 Weeks</span>
@@ -52,7 +54,7 @@
   </div>
 </section>
 
-<section class="alt" id="roadmap" data-short="Roadmap" data-keywords="timeline schedule weeks visits appointments">
+<section id="roadmap" data-short="Roadmap" data-keywords="timeline schedule weeks visits appointments">
   <div class="wrap narrow">
     <div class="section-head">
       <span class="eyebrow">Your Roadmap</span>
@@ -93,7 +95,7 @@
   </div>
 </section>
 
-<section id="tools" data-short="Your Tools" data-keywords="heads up styku sweatenergy symplast app">
+<section class="alt" id="tools" data-short="Your Tools" data-keywords="heads up styku sweatenergy symplast app">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Included in Your Program</span>
@@ -110,7 +112,7 @@
   </div>
 </section>
 
-<section class="alt" id="after" data-short="After Graduation" data-keywords="hoptimization hrt glp-1 core longevity">
+<section id="after" data-short="After Graduation" data-keywords="hoptimization hrt glp-1 core longevity">
   <div class="wrap narrow">
     <span class="eyebrow">What Comes Next</span>
     <h2 style="margin:6px 0 14px">After graduation</h2>
@@ -122,13 +124,14 @@
     <div class="callout"><strong>Why the order matters</strong><p>Every journey starts with the Reset. Medication works best on a balanced foundation. Some patients find they need less, or none at all. Others start with fewer side effects.</p></div>
   </div>
 </section>
+<script src="assets/thisweek.js"></script>
 
 </main>
 <footer class="site">
   <div class="wrap">
     <div class="cols">
       <div>
-        <a href="index.html" class="logo">lip bunny <span style="color:var(--tan-light)">wellness</span></a>
+        <a href="index.html" class="logo"><img class="logo-mark" src="assets/logo.svg" alt="Lip Bunny" width="46" height="46"><span class="logo-text"><b style="color:#fff">Lip Bunny</b><small style="color:var(--tan-light)">Wellness</small></span></a>
         <p style="margin-top:12px">A Lip Bunny Beauty Wellness program.<br>Root cause medicine that blends Eastern and Western care.</p>
         <p><a href="tel:+15083882200">(508) 388-2200</a><br><a href="https://maps.google.com/?q=484+Highland+Ave+Fall+River+MA" target="_blank" rel="noopener">484 Highland Ave, Fall River, MA</a></p>
       </div>
