@@ -1,4 +1,4 @@
-# Wellness Hunny Patient Guide
+# Lip Bunny Wellness Patient Guide
 
 The online version of the Lip Bunny Beauty Wellness welcome binder. A quick resource for patients: remedies, food, supplements, fast days, testing prep, Lip Bunny Rx how-tos, FAQ, a weekly tracker and contact info.
 

@@ -77,7 +77,7 @@ def header(active):
   <div class="call-banner">Questions? Call <a href="{TEL}">{PHONE}</a> or message us in the Symplast for Patients app. &nbsp;<span class="muted">Emergency? Call 911.</span></div>
   <nav class="main" aria-label="Main">
     <div class="wrap">
-      <a href="index.html" class="logo">wellness<span>hunny</span><small>Patient Guide</small></a>
+      <a href="index.html" class="logo">lip bunny <span>wellness</span><small>Patient Guide</small></a>
       <div class="nav-links">{links}</div>
       <div style="display:flex;gap:8px;align-items:center">
         <button class="icon-btn" data-open-search aria-label="Search the guide">
@@ -94,7 +94,7 @@ def footer():
   <div class="wrap">
     <div class="cols">
       <div>
-        <a href="index.html" class="logo">wellness<span style="color:var(--tan-light)">hunny</span></a>
+        <a href="index.html" class="logo">lip bunny <span style="color:var(--tan-light)">wellness</span></a>
         <p style="margin-top:12px">A Lip Bunny Beauty Wellness program.<br>Root cause medicine that blends Eastern and Western care.</p>
         <p><a href="{TEL}">{PHONE}</a><br><a href="{MAPS}" target="_blank" rel="noopener">{ADDRESS}</a></p>
       </div>
@@ -128,7 +128,7 @@ HEAD = '''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} · Wellness Hunny Patient Guide</title>
+<title>{title} · Lip Bunny Wellness</title>
 <meta name="description" content="{desc}">
 <meta name="theme-color" content="#2b231d">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
